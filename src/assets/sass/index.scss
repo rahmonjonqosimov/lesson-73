@@ -79,6 +79,9 @@ body {
     }
   }
 }
+.form__btn:disabled {
+  opacity: 0.5;
+}
 .users {
   font-family: sans-serif;
   padding: 50px 0;

@@ -9,7 +9,9 @@ const initialState = {
 
 const Create = () => {
   const [data, setData] = useState(initialState);
+  const [loading, setLoading] = useState(false);
   const handleCreateUser = (e) => {
+    setLoading(true);
     e.preventDefault();
     axios
       .post("/users", data)
@@ -19,7 +21,7 @@ const Create = () => {
         )
       )
       .catch((err) => console.log(err))
-      .finally(() => {});
+      .finally(() => setLoading(false));
   };
   return (
     <div className="create">
@@ -51,7 +53,9 @@ const Create = () => {
           required
           id="age"
         />
-        <button className="form__btn">Add</button>
+        <button disabled={loading} className="form__btn">
+          {loading ? "Loading...." : "Add"}
+        </button>
       </form>
     </div>
   );
