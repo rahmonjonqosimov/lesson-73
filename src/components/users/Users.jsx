@@ -35,11 +35,11 @@ const Users = ({ del, buy, edit }) => {
       .finally(() => {});
   };
   const handleUserEdit = (id) => {
-    data?.forEach((el) => (el.id == id ? setUser(res.data) : el));
-    //   axios
-    //     .get(`/users/${id}`)
-    //     .then((res) => setUser(res.data))
-    //     .catch((err) => console.log(err));
+    // data?.forEach((el) => (el.id == id ? setUser(res.data) : el));
+    axios
+      .get(`/users/${id}`)
+      .then((res) => setUser(res.data))
+      .catch((err) => console.log(err));
   };
 
   let card = data?.map((el) => (
